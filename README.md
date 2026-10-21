@@ -2,7 +2,9 @@
 
 **Udacity - School of AI | Course 3.3 | Capstone Project 3.3 NovaMart**
 
-A production-grade multi-agent customer support system built with the [Strands Agents SDK](https://github.com/strands-agents/sdk-python) and Amazon Bedrock AgentCore. The system automatically routes customer support requests to specialist agents, retrieves grounded knowledge via **parallel multi-agent RAG**, enforces enterprise safety guardrails, and maintains shared workflow state across agents - all observable through CloudWatch and X-Ray.
+An enterprise-style, cloud-deployed multi-agent customer support system developed using the [Strands Agents SDK](https://github.com/strands-agents/sdk-python) and Amazon Bedrock AgentCore.
+
+The application orchestrates specialized AI agents, performs parallel Retrieval-Augmented Generation (RAG) across Amazon Bedrock Knowledge Bases, integrates enterprise safety guardrails, and maintains shared workflow state using Amazon DynamoDB. CloudWatch logging and AWS X-Ray tracing are configured to support observability and troubleshooting.
 
 <img width="1140" height="824" alt="NovaMart architecture overview" src="diagrams/architecture-overview.png" />
 
@@ -106,13 +108,14 @@ The validation covered multi-agent orchestration, Amazon Bedrock AgentCore deplo
 
 ## Setup
 
-This repository contains the completed NovaMart enterprise multi-agent RAG customer support capstone project, developed using the Strands Agents SDK and Amazon Bedrock AgentCore.
+git clone https://github.com/ayomikunadaramola/novamart-multi-agent-rag.git
+cd novamart-multi-agent-rag
 
-The implementation includes multi-agent orchestration, parallel policy retrieval, Amazon Bedrock Guardrails, AgentCore Memory, DynamoDB workflow state management, and CloudWatch/X-Ray observability.
+py -3.12 -m venv .venv
+.venv\Scripts\activate
 
-The completed implementation successfully passed the automated project assessment with **120/120 points (100%)**.
+python -m pip install -r requirements.txt
 
-Use the tested CLI version **0.30.0** shown above. The supplied CDK compatibility fix keeps HTTP explicit in the deployed runtime metadata.
 
 ### 1. Install Dependencies
 
@@ -200,7 +203,7 @@ starter/
 
 ---
 
-## Tasks & Implementation
+## Implementation Details
 
 ### Task 2 - Multi-Agent Graph
 **File:** `src/agent_orchestrator.py`

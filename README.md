@@ -42,12 +42,6 @@ Shared State: DynamoDB WorkflowStateTable (with optimistic locking)
 
 <img width="1165" height="842" alt="Agents and tools reference" src="diagrams/agents-and-tools-reference.png" />
 
-
-
-
-
-
-
 ### Key Features
 
 - **Multi-Agent RAG**: PolicyAgent runs 3 specialized retriever sub-agents in parallel using ThreadPoolExecutor, merges results, and deduplicates by relevance
@@ -59,7 +53,38 @@ Shared State: DynamoDB WorkflowStateTable (with optimistic locking)
 ---
 <img width="1164" height="803" alt="Request flow scenarios" src="diagrams/request-flow-scenarios.png" />
 
+## Validation Results & Project Evidence
 
+The NovaMart Multi-Agent RAG Customer Support System successfully passed the project's automated assessment, achieving **120/120 points (100%)**.
+
+The validation covered multi-agent orchestration, Amazon Bedrock AgentCore deployment, guardrail configuration, conversational memory, policy retrieval, and AWS observability.
+
+![Final Assessment — 100 Percent](screenshots/final_assessment_100_percent.png)
+
+### Implementation Evidence
+
+| Component | Validation | Evidence |
+|---|---|---|
+| Multi-Agent Orchestration | 40/40 points | [Orchestration Test](screenshots/task2_multi_agent_orchestration_40of40.png) |
+| AgentCore Deployment & Guardrails | Passed | [Deployment Test](screenshots/task3_agentcore_deployment_pass.png) |
+| Runtime Invocation | Successful customer-support response | [Invocation Response](screenshots/task3_runtime_invocation_response.png) |
+| AgentCore Runtime | Deployed and READY | [AWS Runtime](screenshots/agentcore_runtime_ready.png) |
+| AgentCore Memory | 15/15 points | [Memory Test](screenshots/task4_agentcore_memory_100_percent.png) |
+| Bedrock Knowledge Bases | 25/25 points | [Knowledge Base Test](screenshots/task5_bedrock_knowledge_bases.png) |
+| Observability | 20/20 points | [Observability Test](screenshots/task6_observability.png) |
+
+### Key Outcomes
+
+- Implemented five cooperating agents using the Strands Agents SDK.
+- Configured three Amazon Bedrock Knowledge Bases for returns, shipping, and warranty information.
+- Implemented concurrent knowledge retrieval using Python's `ThreadPoolExecutor`.
+- Deployed the multi-agent application to Amazon Bedrock AgentCore Runtime.
+- Configured Bedrock Guardrails and AgentCore Memory with a seven-day event-retention period.
+- Enabled CloudWatch logging and AWS X-Ray tracing.
+- Successfully executed policy-retrieval and deployed-runtime response tests.
+- Achieved **100% of the available 120 assessment points**.
+
+**Note:** The assessment score represents successful project validation, not a production performance or service-level guarantee.
 
 ## Prerequisites
 
@@ -81,7 +106,11 @@ Shared State: DynamoDB WorkflowStateTable (with optimistic locking)
 
 ## Setup
 
-This is the unfinished student starter: complete the TODOs in `src/agent_orchestrator.py`. The CLI configuration and support modules are provided infrastructure, not exercise solutions. Runtime deployment and runtime configuration updates use AgentCore CLI; application service calls still use the AWS SDK.
+This repository contains the completed NovaMart enterprise multi-agent RAG customer support capstone project, developed using the Strands Agents SDK and Amazon Bedrock AgentCore.
+
+The implementation includes multi-agent orchestration, parallel policy retrieval, Amazon Bedrock Guardrails, AgentCore Memory, DynamoDB workflow state management, and CloudWatch/X-Ray observability.
+
+The completed implementation successfully passed the automated project assessment with **120/120 points (100%)**.
 
 Use the tested CLI version **0.30.0** shown above. The supplied CDK compatibility fix keeps HTTP explicit in the deployed runtime metadata.
 

@@ -593,10 +593,24 @@ Install Node.js 20+ and run `npm install -g @aws/agentcore@0.30.0` (see Prerequi
 The CLI runs `uv pip install --python-version 3.12 --python-platform aarch64-manylinux2014 --only-binary :all:` against `build/runtime/pyproject.toml`. It needs [`uv`](https://docs.astral.sh/uv/getting-started/installation/) on your PATH and internet access. Run `python src/agentcore_cli.py` to check what the wrapper sees, and read `agentcore/.cli/logs/` for the CLI's own log.
 
 **`agentcore deploy` fails with a CDK / CloudFormation error?**
-The first deploy bootstraps CDK (`CDKToolkit` stack) - make sure your credentials may create CloudFormation stacks and IAM roles. Check the stack `AgentCore-udacity-default` in **AWS Console → CloudFormation** for the failing resource, fix the cause and re-run `python src/agent_orchestrator.py deploy` (or `agentcore deploy -y`). `agentcore status` shows what is deployed.
+The first deploy bootstraps CDK (`CDKToolkit` stack) - make sure your credentials may create CloudFormation stacks and IAM roles. Check the stack `AgentCore-udacity-default` in **AWS Console → CloudFormation** for the failing resource, fix the cause, and re-run `python src/agent_orchestrator.py deploy` (or `agentcore deploy -y`). `agentcore status` shows what is deployed.
 
 ---
+## Author & Acknowledgements
 
-## License
+**Ayomikun Adaramola**  
+**Senior Data Engineer | Cloud & AI Engineering | Agentic AI**
 
-[License](../../LICENSE.md)
+A Data Engineering and AI professional specializing in cloud-native data solutions, scalable data pipelines, intelligent automation, and agentic AI systems.
+
+This project was developed as a **final capstone project in partial fulfilment of the requirements for the Udacity–AWS Future Agentic AI Engineer Nanodegree Program**.
+
+The project demonstrates the practical application of multi-agent orchestration, Retrieval-Augmented Generation (RAG), Amazon Bedrock AgentCore, AWS cloud services, guardrails, memory management, and observability in building an enterprise-style intelligent customer support system.
+
+Special acknowledgement goes to **Udacity and Amazon Web Services (AWS)** for providing the learning resources and practical environment supporting this project.
+
+**Connect with me:**
+
+- **Portfolio:** [ayomikun-adaramola.netlify.app](https://ayomikun-adaramola.netlify.app)
+- **GitHub:** [ayomikunadaramola](https://github.com/ayomikunadaramola)
+- **LinkedIn:** [Ayomikun Adaramola](https://www.linkedin.com/in/ayomikun-adaramola-)

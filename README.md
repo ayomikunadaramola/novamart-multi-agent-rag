@@ -49,7 +49,7 @@ Shared State: DynamoDB WorkflowStateTable (with optimistic locking)
 - **Multi-Agent RAG**: PolicyAgent runs 3 specialized retriever sub-agents in parallel using ThreadPoolExecutor, merges results, and deduplicates by relevance
 - **Shared Workflow State**: DynamoDB `WorkflowStateTable` with optimistic locking (version-based conditional writes) ensures consistency across concurrent agent updates
 - **Enterprise Guardrails**: Bedrock Guardrails block harmful content, PII, and off-topic conversations
-- **Observability**: Every request is traced to AWS X-Ray (Orchestrator → Worker → Knowledge Base call chain) and logged to CloudWatch Logs - locally and from the deployed runtime
+- **Observability:** Configured Amazon CloudWatch Logs at INFO level and enabled AWS X-Ray tracing with 100% sampling. The project includes instrumentation for monitoring orchestrator execution, worker-agent activity, and knowledge-base retrieval operations.
 - **Bedrock Knowledge Bases**: Uses an S3 Vectors backing store (vector bucket + one index per KB, created by the stack) for policy retrieval (no custom embeddings)
 
 ---
@@ -108,6 +108,9 @@ The validation covered multi-agent orchestration, Amazon Bedrock AgentCore deplo
 
 ## Setup
 
+### 1. Clone the Repository and Install Dependencies
+
+```powershell
 git clone https://github.com/ayomikunadaramola/novamart-multi-agent-rag.git
 cd novamart-multi-agent-rag
 
@@ -115,19 +118,15 @@ py -3.12 -m venv .venv
 .venv\Scripts\activate
 
 python -m pip install -r requirements.txt
-
-
-### 1. Install Dependencies
-
-```bash
-pip install -r requirements.txt
 ```
+
+The commands above are intended for Windows Command Prompt with Python 3.12 installed.
 
 ### 2. Configure Environment
 
 ```bash
 # Copy .env template
-cp .env.example .env
+copy .env.example .env
 
 # Verify AWS resources
 python config.py
